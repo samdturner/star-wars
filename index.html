@@ -1,28 +1,62 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" href="master.css" media="screen" title="no title" charset="utf-8">
   </head>
-  <body>
-    <script src="keymaster-master/keymaster.js"></script>
-    <script src="lib/movingObjects.js"></script>
-    <script src="lib/util.js"></script>
-    <script src="lib/asteroid.js"></script>
-    <script src="lib/ship.js"></script>
-    <script src="lib/bullet.js"></script>
-    <script src="lib/game.js"></script>
-    <script src="lib/gameView.js"></script>
-    <img src="assets/death_star.jpg" style="position: absolute;
-                                            z-index: -99;
-                                            width: 1296px;
-                                            height: 810px;"/>
-    <canvas id="game-canvas" width="1296" height="810"></canvas>
+  <body style="background-color: black;">
+    <link href='http://fonts.googleapis.com/css?family=Cuprum' rel='stylesheet' type='text/css'>
+    <script src="scripts/movingObjects.js"></script>
+    <script src="scripts/util.js"></script>
+    <script src="scripts/enemyShip.js"></script>
+    <script src="scripts/starDestroyer.js"></script>
+    <script src="scripts/tieFighter.js"></script>
+    <script src="scripts/ship.js"></script>
+    <script src="scripts/laser.js"></script>
+    <script src="scripts/destroyerDmgExp.js"></script>
+    <script src="scripts/destroyerDeadExp.js"></script>
+    <script src="scripts/game.js"></script>
+    <script src="scripts/gameView.js"></script>
+    <script src="scripts/controls.js"></script>
+    <div class="container">
+      <div class="volume-toggle">
+        <span class="enable-volume volume-control" id="enable-volume">
+          Enable volume
+        </span>
+        <span class="disable-volume volume-control" id="disable-volume">
+          Disable volume
+        </span>
+      </div>
+      <div class="score">
+        <span class="score-label" id="score-label">
+          0
+        </span>
+      </div>
+      <div id="lives">
+          <img class="life-img" id="xwing-img-3" src="assets/white_x_wing.png">
+          <img class="life-img" id="xwing-img-2" src="assets/white_x_wing.png">
+          <img class="life-img" id="xwing-img-1" src="assets/white_x_wing.png">
+      </div>
+      <img class="background-img" src="assets/death_star.jpg"/>
+      <canvas id="game-canvas" width="1296px" height="810px">
+      </canvas>
+      <div class="start-game-cont" id="start-game-cont">
+        <span class='start-game'>Star Wars</span>
+        <span class='new-game' onclick="startGame()" id='new-game'>New Game</span>
+      </div>
+    </div>
 
     <script charset="utf-8">
       var canvasEl = document.getElementById("game-canvas");
 
       var ctx = canvasEl.getContext("2d");
       var newGame = new window.Asteroids.GameView(ctx);
-      newGame.start();
+
+
+      function startGame() {
+        newGame.start();
+        var startGameCont = document.getElementById('start-game-cont');
+        startGameCont.style.zIndex = -100;
+      };
     </script>
   </body>
 </html>
