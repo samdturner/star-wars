@@ -1,12 +1,12 @@
 # star-wars
 Star Wars game inspired by asteroids
 
-```
-EnemyShip.prototype.fireLaser = function (offset) {
-  if(this.game.ship.length === 0){
-    return false;
-  }
 
+To simulate a more realistic game play experience, the enemy shot vector is calculated based on the angle to the player plus a random variant of +/- 32.5 degrees.
+```
+# scripts/enemyShip.js
+
+EnemyShip.prototype.fireLaser = function (offset) {
   var width = 40;
   if(this instanceof A.StarDestroyer){
     width = 100;
