@@ -33,7 +33,7 @@ EnemyShip.prototype.angleToxWing = function () {
 
 ```
 
-Since the enemy star destroyers are irregular shapes, I used three polygons (bottom triangle, top triangle, and top rectangle) to calcuate when the star destroyer has been hit by a laser.
+Since the enemy star destroyers are irregular shapes, I used three polygons (bottom triangle, top triangle, and rectangle) to calcuate when the star destroyer has been hit by a laser.
 
 ```
 #scripts/starDestroyer.js
