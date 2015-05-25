@@ -32,3 +32,41 @@ EnemyShip.prototype.angleToxWing = function () {
 };
 
 ```
+
+Since the enemy star destroyers are irregular shapes, I used three polygons (bottom triangle, top triangle, and top rectangle) to calcuate when the star destroyer has been hit by a laser.
+
+```
+#scripts/starDestroyer.js
+
+StarDestroyer.prototype.isCollidedWith = function (otherObj) {
+  xStart = this.pos[0] - 80;
+  yStart = this.pos[1] + 52;
+
+  var btmTriangle = [[xStart, yStart],
+  [xStart - 80, yStart - 21],
+  [xStart + 230, yStart - 16]];
+
+  if(this.circleInTriangle(btmTriangle, otherObj.pos, otherObj.radius)){
+    return true;
+  }
+
+  var topTriangle = [[xStart - 80, yStart - 21],
+  [xStart - 6, yStart - 65],
+  [xStart + 230, yStart - 16]];
+
+  if(this.circleInTriangle(topTriangle, otherObj.pos, otherObj.radius)){
+    return true;
+  }
+
+  var rect = [[xStart - 8, yStart - 76],
+  [xStart - 8, yStart - 95],
+  [xStart + 45, yStart - 95],
+  [xStart + 45, yStart - 75]];
+
+  if(this.rectCircleColliding(rect, otherObj.pos, otherObj.radius)){
+    return true;
+  }
+
+  return false;
+};
+```
