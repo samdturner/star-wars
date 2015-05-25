@@ -1,5 +1,7 @@
 # star-wars
-Star Wars game inspired by asteroids
+This Star Wars game was inspired by asteroids and was built in javascript.
+
+View it live: http://samdturner.github.io/star-wars/
 
 
 To simulate a more realistic game play experience, the enemy shot vector is calculated based on the angle to the player plus a random variant of +/- 32.5 degrees.
