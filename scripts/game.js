@@ -83,7 +83,7 @@
     this.changeZIndex('disable-volume', -2000);
 
     var startGameCont = document.getElementById('start-game-cont');
-    startGameCont.style.zIndex = 100;
+    startGameCont.style.display = "block";
 
     this.backgroundMusic.pause();
 
